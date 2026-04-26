@@ -17,31 +17,31 @@ public class BookService {
 		books.add(book);
 	}
 	
-	public void removeBook(Book book) {
-		books.remove(book);
+	public void removeBook(String isbn) {
+		books.remove(findByIsbn(isbn));
 	}
 
-	public String findByIsbn(String isbn) {
+	public Book findByIsbn(String isbn) {
 		for(Book book : books) {
 			if(isbn.equals(book.getIsbn())) {
-				return book.getTitle();
+				return book;
 			}
 		}
-		return "Livro não encontrado.";
+		return null;
 	}
 	
-	public String findByTitle(String title) {
+	public Book findByTitle(String title) {
 		for(Book book : books) {
 			if(title.equals(book.getTitle())) {
-				return book.getTitle();
+				return book;
 			}
 		}
-		return "Livro não encontrado.";
+		return null;
 	}
 	
-	public String listAllBooks() {
+	public void listAllBooks() {
 		for(Book book : books) {
-			return book.getTitle();
+			System.out.println(book.getTitle());;
 		}
 	}
 	

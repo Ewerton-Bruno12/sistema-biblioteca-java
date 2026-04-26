@@ -4,16 +4,22 @@ import java.time.LocalDateTime;
 
 public class Loan {
 	
+	private int id;
 	private Book book;
 	private User user;
 	private LocalDateTime startDate;
 	private LocalDateTime returnDate;
 	private boolean isReturned;
 	
-	public Loan(Book book, User user, LocalDateTime startDate) {
+	public Loan(int id, Book book, User user, LocalDateTime startDate) {
+		this.id = id;
 		this.book = book;
 		this.user = user;
 		this.startDate = startDate;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public Book getBook() {
