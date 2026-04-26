@@ -10,6 +10,12 @@ public class Loan {
 	private LocalDateTime returnDate;
 	private boolean isReturned;
 	
+	public Loan(Book book, User user, LocalDateTime startDate) {
+		this.book = book;
+		this.user = user;
+		this.startDate = startDate;
+	}
+
 	public Book getBook() {
 		return book;
 	}
@@ -25,10 +31,13 @@ public class Loan {
 	public LocalDateTime getReturnDate() {
 		return returnDate;
 	}
+	
 	public boolean isReturned() {
 		return isReturned;
 	}
-	
-	
 
+	public void setReturned(boolean isReturned) {
+		this.isReturned = isReturned;
+	}
+	
 }
