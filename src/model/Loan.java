@@ -1,17 +1,17 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Loan {
 	
 	private int id;
 	private Book book;
 	private User user;
-	private LocalDateTime startDate;
-	private LocalDateTime returnDate;
+	private LocalDate startDate;
+	private LocalDate returnDate;
 	private boolean isReturned;
 	
-	public Loan(int id, Book book, User user, LocalDateTime startDate) {
+	public Loan(int id, Book book, User user, LocalDate startDate) {
 		this.id = id;
 		this.book = book;
 		this.user = user;
@@ -30,20 +30,34 @@ public class Loan {
 		return user;
 	}
 	
-	public LocalDateTime getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 	
-	public LocalDateTime getReturnDate() {
+	public LocalDate getReturnDate() {
 		return returnDate;
 	}
 	
+	public void setReturnDate(LocalDate returnDate) {
+		this.returnDate = returnDate;
+	}
+
 	public boolean isReturned() {
 		return isReturned;
 	}
 
 	public void setReturned(boolean isReturned) {
 		this.isReturned = isReturned;
+	}
+
+	@Override
+	public String toString() {
+		return "Loan: id=" + id 
+				+ "\n" + book 
+				+ "\nuser: " + user.getName() 
+				+ "\nstartDate: " + startDate 
+				+ "\nreturnDate: " + returnDate 
+				+ "\nisReturned: " + isReturned + "\n";
 	}
 	
 }
