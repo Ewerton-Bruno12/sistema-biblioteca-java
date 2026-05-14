@@ -8,6 +8,7 @@ import database.DatabaseConnection;
 import model.Book;
 import model.Loan;
 import model.User;
+import repository.BookRepository;
 import service.BookService;
 import service.LoanService;
 
@@ -17,6 +18,14 @@ public class Main {
 		
 		DatabaseConnection database = new DatabaseConnection();
 		database.getConnection();
+		
+		BookRepository bookRepository = new BookRepository(database.getConnection());
+		System.out.println(bookRepository.findAll());
+		
+		List<Book> booksFromDb = bookRepository.findAll();
+		for (Book book : booksFromDb) {
+		    System.out.println(book);
+		}
 		
 		List<Book> books = new ArrayList<>();
 		List<Loan> loans = new ArrayList<>();
